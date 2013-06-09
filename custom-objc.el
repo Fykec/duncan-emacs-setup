@@ -35,32 +35,10 @@
 
 (add-hook 'objc-mode-hook 'objc-mode-customizations)
 
-  (put 'upcase-region 'disabled nil)
+(load "adaptive-wrap-0.2")
+(add-hook 'objc-mode-hook 'visual-line-mode)
+(add-hook 'objc-mode-hook 'adaptive-wrap-prefix-mode)
+(add-hook 'objc-mode-hook (lambda ()
+                            (setq adaptive-wrap-extra-indent 4)))
 
-  (custom-set-variables
-   ;; custom-set-variables was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(scalable-fonts-allowed t))
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   )
 
-   (when (eq system-type 'darwin)
-        ;; default Latin font (e.g. Consolas)
-        (set-face-attribute 'default nil :family "Bitstream Vera Sans Mono")
-        ;; default font size (point * 10)
-        ;; WARNING!  Depending on the default font,
-        ;; if the size is not supported very well, the frame will be clipped
-        ;; so that the beginning of the buffer may not be visible correctly. 
-        (set-face-attribute 'default nil :height 165)
-        ;; use specific font for Korean charset.
-        ;; if you want to use different font size for specific charset,
-        ;; add :size POINT-SIZE in the font-spec.
-  ;      (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
-        ;; you may want to add different for other charset in this way.
-        )
