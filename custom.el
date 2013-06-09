@@ -9,6 +9,21 @@
 ; shutup the beep
 (setq visible-bell t)
 
+;;Set up copy and paste
+;;http://www.lingotrek.com/2010/12/integrate-emacs-with-mac-os-x-clipboard.html
+(setq x-select-enable-clipboard t)
+(defun mac-copy ()
+(shell-command-to-string "pbpaste"))
+
+(defun mac-paste (text &optional push)
+(let ((process-connection-type nil)) 
+(let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+(process-send-string proc text)
+(process-send-eof proc))))
+
+(setq interprogram-cut-function 'mac-paste)
+(setq interprogram-paste-function 'mac-copy)
+
 (custom-set-variables
  '(desktop-buffers-not-to-save "\\(^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|.*_flymake.*\\)$")
  '(desktop-files-not-to-save "^/[^/:]*:\\|.*_flymake\\..*"))
@@ -82,7 +97,24 @@
 (load "custom-c") ; C/C++ customization
 (load "custom-java") ; Java customization
 (load "custom-vala")
+(load "custom-objc"); Objective-c customization
+
+;;Unicad
+(load "unicad")
+(require 'unicad)
+
+;;line number display in left-margin of buffer
+(load "linum")
+(require 'linum)
+(global-linum-mode 1)
+(setq linum-format "%d ");;left a space between line number and real text
+
+;;ido-mode
+(require 'ido)
+(ido-mode t)
 
 (global-font-lock-mode 1)
 (set-frame-font "Inconsolata:style=Medium")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'Amelie t)
 

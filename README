@@ -1,6 +1,7 @@
 
-emacs setup for Duncan Mac-Vicar P.
+emacs setup for  Foster.Yin
+base on Duncan Mac-Vicar P.
 
-Clone as git clone git@github.com:dmacvicar/duncan-emacs-setup.git .emacs.d
+Clone as git clone https://github.com/Fykec/duncan-emacs-setup.git .emac.d
 
 
