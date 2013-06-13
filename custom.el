@@ -9,6 +9,13 @@
 ; shutup the beep
 (setq visible-bell t)
 
+;;(if window-system
+;;        (set-frame-size (selected-frame) 80 30))
+
+(load "fit-frame")
+(require 'fit-frame)
+(set-frame-position (selected-frame) 800 300)
+
 ;;Set up copy and paste
 ;;http://www.lingotrek.com/2010/12/integrate-emacs-with-mac-os-x-clipboard.html
 (setq x-select-enable-clipboard t)
