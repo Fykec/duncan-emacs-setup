@@ -120,6 +120,10 @@
 (require 'ido)
 (ido-mode t)
 
+;;set y-or-n-p to replace yes or no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
 (global-font-lock-mode 1)
 (set-frame-font "Inconsolata:style=Medium")
   (put 'upcase-region 'disabled nil)
