@@ -15,6 +15,8 @@
 (load "fit-frame")
 (require 'fit-frame)
 (set-frame-position (selected-frame) 800 300)
+;;toggle fullscreen
+(global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
 
 ;;Set up copy and paste
 ;;http://www.lingotrek.com/2010/12/integrate-emacs-with-mac-os-x-clipboard.html
@@ -120,9 +122,13 @@
 (require 'ido)
 (ido-mode t)
 
+;;textmate
+(load "textmate")
+(require 'textmate)
+(textmate-mode)
+
 ;;set y-or-n-p to replace yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
-
 
 (global-font-lock-mode 1)
 (set-frame-font "Inconsolata:style=Medium")
