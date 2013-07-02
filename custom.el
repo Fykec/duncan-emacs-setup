@@ -127,6 +127,13 @@
 (require 'textmate)
 (textmate-mode)
 
+;; Add dirtree and dependencies to load path
+(add-to-list 'load-path "~/.emacs.d/dirtree")
+;; Compile .el files (optional)
+(byte-recompile-directory "~/.emacs.d/dirtree" 0)
+;; Autoload dirtree
+(autoload 'dirtree "dirtree" "Add directory to tree view" t)
+
 ;;set y-or-n-p to replace yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
